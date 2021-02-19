@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+  <div class="panel-heading" style="background: deepskyblue;">
+    <h2 class="title">Lista de Convidados</h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf=" menssageSuccess">
+          {{ menssageSuccess }}
+        </div>
+        <div class="alert alert-danger" role="alert" *ngFor=" menssageErro">
+          {{ menssageErro }}
+        </div>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>NOME</th>
+        <th>CPF</th>
+        <th>E-MAIL</th>
+        <th>TELEFONE</th>
+        <th>AÇÃO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let convidado of convidados| async">
+        <td>{{convidado.nome}}</td>
+        <td>{{convidado.cpf}}</td>
+        <td>{{convidado.email}}</td>
+        <td>{{convidado.telefone}}</td>
+        <td>
+          <button (click)="deleteConvidado(convidado.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-success ml-1" [routerLink]="['/convidado']">
+        <i class="fa fa-arrow-alt-circle-left"></i> Novo Cliente
+      </button>
+      <button type="button" class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/home']">
+        <i class="fa fa-arrow-alt-circle-left"></i> Inicio
+      </button>
+    </div>
+  </div>
+</div>

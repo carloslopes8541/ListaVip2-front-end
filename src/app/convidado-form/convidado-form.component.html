@@ -1,0 +1,63 @@
+<div style="background-color: deepskyblue;">
+  <h1 class="title"> Cadastro de Convidados</h1>
+</div>
+<div [hidden]="submitted" class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="messageSuccess">
+          {{ messageSuccess }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label for="name"> Nome:</label>
+          <input type="text" class="form-control" id="nome" required [(ngModel)]="convidado.nome"
+                 name="nome"/>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label for="name"> E-mail:</label>
+          <input type="text" class="form-control" id="email" required [(ngModel)]="convidado.email"
+                 name="email"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label for="name"> CPF: * </label>
+          <input type="text" class="form-control" id="cpf" required [(ngModel)]="convidado.cpf" name="cpf"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class=" form-group">
+          <label for="name"> Telefone: * </label>
+          <input type="text" class="form-control" id="telefone" required [(ngModel)]="convidado.telefone"
+                 name="telefone"/>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="botoes">
+        <button type="submit" class="btn btn-success">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+      <div class="botoes">
+        <button type="button" class="btn btn-danger ml-1 " [routerLink]="['/home']">
+          <i class=" fa-arrow-alt-circle-left"></i> Voltar
+        </button>
+      </div>
+      <div class="botoes">
+        <button type="button" class="btn btn-primary" [routerLink]="['/lista-convidado']">
+          <i class="fa fa-arrow-alt-circle-left"></i> Lista Convidados
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
